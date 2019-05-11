@@ -7,17 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   private errorMessage: string = 'Error: invalid value provided.';
-  private fooBar: string = '';
+  private fooBarOutput: string = '';
   inputText: string = '';
 
   ngOnInit(inputText: string) {
     this.inputText = inputText;
   }
 
-  public onKeyUp(value: string) {
+  public generateOutputText(value: string) {
     //deals with error
     if (!this.isANumber(value) && value) {
-      this.fooBar = '';
+      this.fooBarOutput = '';
       if (value[0] !== "0" || /\D+/.test(value)) {
         this.addInvalidClass();
       }
@@ -28,7 +28,7 @@ export class AppComponent {
     }
     document.getElementById('inputText').className = "form-control"
     let outputText: string = value ? this.fooBarGenerator(value) : '';
-    this.fooBar = outputText;
+    this.fooBarOutput = outputText;
   }
   //Generates output text
   private fooBarGenerator(inputValue: string): string {
