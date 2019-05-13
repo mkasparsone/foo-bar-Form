@@ -1,5 +1,5 @@
 <div class="container">
-  <header style="text-align:center">
+  <header class="text-center">
     <h2 id="headerText">Hello There!</h2>
     <p>This is a task demonstrating my knowledge developing applications with Angular.</p>
   </header>
@@ -8,7 +8,7 @@
       <div class="form-group">
         <label for="input">Input:</label>
         <input id="inputText" type="text" class="form-control" name="inputText" [(ngModel)]="inputText"
-          #nameField="ngModel" (keyup)="generateOutputText(inputText)" pattern="^-?[0-9]*$"
+          #nameField="ngModel" (keyup)="generateOutputText(inputText, nameField.invalid)" pattern="{{verificationPattern}}"
           [ngClass]="{'is-invalid':nameField.invalid}" />
         <small class="invalid-feedback">{{errorMessage}}</small>
       </div>
@@ -18,7 +18,7 @@
       </div>
     </form>
   </div>
-  <footer style="text-align:center">
+  <footer class="text-center">
     <p class="text-secondary">&copy;&thinsp;MyWebsite 2019</p>
   </footer>
 </div>

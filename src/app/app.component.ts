@@ -8,14 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private errorMessage: string = 'Error: invalid value provided.';
   private fooBarOutput: string = '';
-  inputText: string = '';
+  private verificationPattern: string = '^-?[0-9]*$';
 
-  public generateOutputText(value: string):void {
-    if (!/^-?0/.test(value)) {
+  public generateOutputText(value: string, isWrongInput: boolean):void {
+    if (!/^-?0/.test(value) && !isWrongInput) {
      let outputText: string = value ? this.fooBarGenerator(value) : '';
      this.fooBarOutput = outputText;
     }
   }
+
   //Generates output text
   private fooBarGenerator(inputValue: string): string {
     let inputNumber: number = Number(inputValue);
