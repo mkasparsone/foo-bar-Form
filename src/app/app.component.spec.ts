@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     component.generateOutputText(value, false);
     fixture.detectChanges();
     const outuput = fixture.debugElement.nativeElement;
-    expect(outuput.querySelector('input[disabled]').placeholder).toContain('FooBar');
+    expect(outuput.querySelector('input[disabled]').placeholder).toBe('FooBar');
   });
 
   it('should output value Foo', () => {
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
     component.generateOutputText(value, false);
     fixture.detectChanges();
     const outuput = fixture.debugElement.nativeElement;
-    expect(outuput.querySelector('input[disabled]').placeholder).toContain('Foo');
+    expect(outuput.querySelector('input[disabled]').placeholder).toBe('Foo');
   });
 
   it('should output value Bar', () => {
@@ -54,7 +54,7 @@ describe('AppComponent', () => {
     component.generateOutputText(value, false);
     fixture.detectChanges();
     const outuput = fixture.debugElement.nativeElement;
-    expect(outuput.querySelector('input[disabled]').placeholder).toContain('Bar');
+    expect(outuput.querySelector('input[disabled]').placeholder).toBe('Bar');
   });
 
   it('should output no value', () => {
